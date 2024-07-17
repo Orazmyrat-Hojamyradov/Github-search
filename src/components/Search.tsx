@@ -3,13 +3,7 @@ import "../styles/Search.scss";
 import { useState } from "react";
 import { useDebounce } from "../hooks/useDebounce";
 import { useQuery } from "@tanstack/react-query";
-
-interface User {
-  id: number;
-  login: string;
-  avatar_url: string;
-  html_url: string;
-}
+import UserItems from "../types/User";
 
 export default function Search() {
   const [query, setQuery] = useState<string>("");
@@ -28,14 +22,10 @@ export default function Search() {
       }
 
       const jsonData = await response.json();
-      return jsonData.items || [];
+      return jsonData.items;
     },
   });
 
-  const handleError = (error: any) => {
-    console.error(error);
-    return `Error: ${error.message}`;
-  };
 
   return (
     <>
@@ -52,11 +42,9 @@ export default function Search() {
       <div className="search-results-box">
         {isLoading ? (
           <p>Loading...</p>
-        ) : error ? (
-          <p>{handleError(error)}</p>
-        ) : data?.length > 0 ? (
+        ): data?.length > 0 ? (
           <ul className="list">
-            {data.map((user: User) => (
+            {data.map((user: UserItems) => (
               <li key={user.id} className="users">
                 <a href={user.html_url} className="user-link">
                   {user.login}
