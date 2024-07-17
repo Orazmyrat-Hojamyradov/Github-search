@@ -1,14 +1,20 @@
-import Search from "../components/Search";
-import UserCard from "../components/UserCard";
-import "../styles/Main.scss";
+import {
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
+import "../styles/Home.scss";
+import RepoData from "../components/RepoData";
 
-export default function Main() {
+
+
+export default function Home() {
+  const queryClient = new QueryClient();
+
   return (
-    <div className="main-box">
-      <div className="main-content">
-        <Search />
-        <UserCard/>
+    <QueryClientProvider client={queryClient}>
+      <div className="main-box">
+        <RepoData />
       </div>
-    </div>
+    </QueryClientProvider>
   );
 }

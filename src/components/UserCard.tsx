@@ -1,17 +1,26 @@
 import "../styles/UserCard.scss";
 import { FaRegHeart } from "react-icons/fa6";
 
-export default function UserCard() {
+interface ICardProps{
+  repoName: string,
+  forks: number,
+  watchers: number,
+  repo_link: string
+}
+
+export default function UserCard({ repoName, forks, watchers, repo_link }: ICardProps) {
   return (
     <div className="card">
-      <h3 className="repo-name">placeholder</h3>
+      <h3 className="repo-name">{repoName}</h3>
       <div className="section-1">
-        <p className="forks">Forks: 1</p>
-        <p className="watchers">Watchers: 1</p>
+        <p className="forks">Forks: {forks}</p>
+        <p className="watchers">Watchers: {watchers}</p>
       </div>
       <div className="section-2">
-        <FaRegHeart size="1.5rem"/>
-        <button className="repo-link">Repo link here</button>
+        <FaRegHeart size="1.5rem" />
+        <a href={repo_link} className="link">
+          <button className="repo-link">Go to repo</button>
+        </a>
       </div>
     </div>
   );
