@@ -1,5 +1,6 @@
 import github_icon from "/icons/github-mark-white.png";
 import "../styles/NavBar.scss";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
   return (
@@ -10,14 +11,14 @@ export default function NavBar() {
         <div className="navbar-links">
           <ul className="links-list">
             <li>
-              <a className="link" href="#">
+              <Link className="link" to="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="link" href="#">
+              <Link className="link" to="/favourites">
                 Favourites
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

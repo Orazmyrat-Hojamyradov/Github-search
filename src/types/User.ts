@@ -1,6 +1,6 @@
 export default interface UserItems {
   login: string;
-  id: 50981769;
+  id: number;
   node_id: string;
   avatar_url: string;
   gravatar_id: string;

@@ -5,3 +5,7 @@ html {
     font-family: Arial, Helvetica, sans-serif;
     overflow: hidden;
 }
+
+a{
+    text-decoration: none;
+}

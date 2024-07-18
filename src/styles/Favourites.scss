@@ -1,0 +1,52 @@
+.favs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 15vh 0;
+}
+
+.fav-title {
+  font-size: 2rem;
+}
+.fav-list {
+  text-align: center;
+  padding: 3rem;
+  padding-top: 0;
+  width: fit-content;
+  height: 300px;
+  overflow-y: scroll;
+  list-style-type: none;
+}
+
+.fav-list-user {
+  padding: 0.5rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: black;
+
+    a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.repo-link-btn {
+  padding: 0.5rem;
+  margin: 0.25rem;
+  background-color: white;
+  font-size: 1rem;
+  border: 3px solid teal;
+  border-radius: 1rem;
+
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+  transition-property: border-color, background-color;
+
+  &:hover {
+    cursor: pointer;
+    border-color: black;
+    background-color: teal;
+  }
+}
