@@ -6,3 +6,9 @@
   justify-content: center;
   margin: 20vh 0;
 }
+
+@media ((min-width: 375px) and (max-width:430px)) {
+  .main-content {
+    margin-top: 2rem;
+  }
+}

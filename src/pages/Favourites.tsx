@@ -19,7 +19,7 @@ export default function Favourites({ favs }: FavouritesProps) {
               </a>
 
               <a href={`https://github.com/${username}?tab=repositories`}>
-                <button className="repo-link-btn">Go to repo</button>
+                <button className="repo-link-btn">Go to repos</button>
               </a>
             </>
           ))}

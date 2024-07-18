@@ -35,6 +35,10 @@ export default function Search({ favs, setFavs }: SearchProps) {
   const handleRemoveFromFavs = (username: string) => {
     const updatedFavs = favs.filter((fav) => fav !== username);
     setFavs(updatedFavs);
+    swal({
+      text: 'User removed from favourites',
+      icon: 'success',
+    });
   };
 
   return (
