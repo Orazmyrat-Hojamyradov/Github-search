@@ -3,41 +3,39 @@ import "../styles/Search.scss";
 import { useState } from "react";
 import UserItems from "../types/User";
 import { useDebounce } from "../hooks/useDebounce";
+import { useStore } from "../store/store";
 import useUsers from "../api/UserAPI";
 import { FaRegHeart, FaHeart } from "react-icons/fa6";
 import swal from "sweetalert";
 
-interface SearchProps {
-  favs: string[];
-  setFavs: (favs: string[]) => void;
-}
 
-export default function Search({ favs, setFavs }: SearchProps) {
+export default function Search() {
   const [query, setQuery] = useState<string>("");
   const debouncedQuery = useDebounce(query);
   const { data, isLoading } = useUsers(debouncedQuery);
+  const { favs, addToFavs, removeFromFavs } = useStore();
 
   const handleAddToFavs = (username: string) => {
     if (!favs.includes(username)) {
-      setFavs([...favs, username]);
+      addToFavs(username);
       swal({
-        text: 'Added to favourites',
-        icon: 'success',
+        text: "Added to favourites",
+        icon: "success",
       });
     } else {
       swal({
-        text: 'User already in favourites',
-        icon: 'warning',
+        text: "User already in favourites",
+        icon: "warning",
       });
     }
   };
+  
 
   const handleRemoveFromFavs = (username: string) => {
-    const updatedFavs = favs.filter((fav) => fav !== username);
-    setFavs(updatedFavs);
+    removeFromFavs(username);
     swal({
-      text: 'User removed from favourites',
-      icon: 'success',
+      text: "User removed from favourites",
+      icon: "success",
     });
   };
 
@@ -67,9 +65,15 @@ export default function Search({ favs, setFavs }: SearchProps) {
                   <button className="repo-link">Go to Github</button>
                 </a>
                 {favs.includes(user.login) ? (
-                  <FaHeart className="fav" onClick={() => handleRemoveFromFavs(user.login)} />
+                  <FaHeart
+                    className="fav"
+                    onClick={() => handleRemoveFromFavs(user.login)}
+                  />
                 ) : (
-                  <FaRegHeart className="fav" onClick={() => handleAddToFavs(user.login)} />
+                  <FaRegHeart
+                    className="fav"
+                    onClick={() => handleAddToFavs(user.login)}
+                  />
                 )}
               </li>
             ))}

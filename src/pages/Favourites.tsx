@@ -1,15 +1,13 @@
 import "../styles/Favourites.scss";
+import { useStore } from "../store/store";
 
-interface FavouritesProps {
-  favs: string[];
-}
-
-export default function Favourites({ favs }: FavouritesProps) {
+export default function Favourites() {
+  const { favs } = useStore();
   return (
     <div className="favs">
       <h1 className="fav-title">Favourites</h1>
       {favs.length > 0 ? (
-        <ul className="fav-list">
+        <ul className="fav-list" >
           {favs.map((username) => (
             <>
               <a className="fav-link" href={`https://github.com/${username}`}>
@@ -17,7 +15,6 @@ export default function Favourites({ favs }: FavouritesProps) {
                   {username}
                 </li>
               </a>
-
               <a href={`https://github.com/${username}?tab=repositories`}>
                 <button className="repo-link-btn">Go to repos</button>
               </a>
