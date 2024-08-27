@@ -8,7 +8,6 @@ import useUsers from "../api/UserAPI";
 import { FaRegHeart, FaHeart } from "react-icons/fa6";
 import swal from "sweetalert";
 
-
 export default function Search() {
   const [query, setQuery] = useState<string>("");
   const debouncedQuery = useDebounce(query);
@@ -29,7 +28,6 @@ export default function Search() {
       });
     }
   };
-  
 
   const handleRemoveFromFavs = (username: string) => {
     removeFromFavs(username);
@@ -51,10 +49,11 @@ export default function Search() {
           placeholder="Search User"
         />
       </div>
-      <div className="search-results-box">
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : data?.length > 0 ? (
+
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : data?.length > 0 ? (
+        <div className="search-results-box">
           <ul className="list">
             {data.map((user: UserItems) => (
               <li key={user.id} className="users">
@@ -78,10 +77,10 @@ export default function Search() {
               </li>
             ))}
           </ul>
-        ) : (
-          <p>No user matched or enter a valid username</p>
-        )}
-      </div>
+        </div>
+      ) : (
+        <p className="def-text">Enter username</p>
+      )}
     </>
   );
 }
