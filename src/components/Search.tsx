@@ -51,7 +51,7 @@ export default function Search() {
       </div>
 
       {isLoading ? (
-        <p>Loading...</p>
+        <p className="loading">Loading...</p>
       ) : data?.length > 0 ? (
         <div className="search-results-box">
           <ul className="list">

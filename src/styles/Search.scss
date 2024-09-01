@@ -98,9 +98,15 @@
   }
 }
 
-@media ((min-width: 375px) and (max-width:430px)) {
+.loading {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+@media ((min-width: 320px) and (max-width:430px)) {
   .search-box {
-    width: 360px;
+    width: 85%;
   }
   .search-results-box {
     height: 55vh;
