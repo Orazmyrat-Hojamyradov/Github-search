@@ -36,7 +36,7 @@
   width: 85%;
   margin: auto;
   margin-top: 1rem;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .def-text {
@@ -55,6 +55,10 @@
 }
 
 .users {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   margin: 0;
   margin-right: 0.5rem;
   padding: 0.8rem;

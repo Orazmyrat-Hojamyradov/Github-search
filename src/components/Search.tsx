@@ -60,9 +60,6 @@ export default function Search() {
                 <a href={user.html_url} className="user-link">
                   {user.login}
                 </a>
-                <a href={user.html_url} className="user-link">
-                  <button className="repo-link">Go to Github</button>
-                </a>
                 {favs.includes(user.login) ? (
                   <FaHeart
                     className="fav"
