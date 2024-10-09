@@ -15,8 +15,20 @@
   padding-top: 0;
   width: fit-content;
   height: 300px;
-  overflow-y: scroll;
+  overflow-y: auto;
   list-style-type: none;
+}
+
+.fav-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.fav {
+  font-size: 2rem;
+  margin-bottom: -8px;
 }
 
 .fav-list-user {
@@ -26,7 +38,7 @@
   text-decoration: none;
   color: black;
 
-    a {
+  a {
     text-decoration: none;
     color: black;
   }
